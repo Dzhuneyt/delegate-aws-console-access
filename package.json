@@ -1,0 +1,32 @@
+{
+  "name": "create-aws-console-link",
+  "version": "1.0.0",
+  "description": "Use TypeScript code to generate a temporary signin link that allows any user you send it to (even ones outside of your organization) - to assume an IAM role and manage AWS resources for temporary (predefined) duration.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dzhuneyt/create-aws-console-link.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dzhuneyt/create-aws-console-link/issues"
+  },
+  "homepage": "https://github.com/Dzhuneyt/create-aws-console-link#readme",
+  "dependencies": {
+    "@types/node": "^13.13.4",
+    "aws-sdk": "^2.668.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
