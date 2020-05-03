@@ -17,11 +17,10 @@ export const handler = async (event: any) => {
     // Step 1: Authenticate user in your own identity system.
     // @TODO
 
-    const util = new ConsoleSigninGenerator(
+    return await new ConsoleSigninGenerator(
         AWS_ACCESS_KEY_ID,
         AWS_SECRET_ACCESS_KEY,
         roleToAssumeARN,
         currentUser
-    );
-    return await util.getConsoleSigninLink()
+    ).getConsoleSigninLink()
 }
