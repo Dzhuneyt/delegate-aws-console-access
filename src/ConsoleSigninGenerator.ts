@@ -17,7 +17,7 @@ export class ConsoleSigninGenerator {
         this.awsAccessKeyId = AWS_ACCESS_KEY_ID;
         this.awsSecretAccessKey = AWS_SECRET_ACCESS_KEY;
         this.roleARN = roleARN;
-        this.userAlias = userAlias ? userAlias : "UknownUser";
+        this.userAlias = userAlias ? userAlias : "UnknownUser";
     }
 
     private getSts() {
