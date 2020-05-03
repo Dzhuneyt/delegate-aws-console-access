@@ -1,5 +1,6 @@
 {
-  "name": "create-aws-console-link",
+  "name": "cdk-example",
+  "private": true,
   "version": "0.1.0",
   "bin": {
     "create-aws-console-link": "bin/create-aws-console-link.js"
@@ -29,6 +30,7 @@
     "@aws-cdk/core": "1.36.1",
     "aws-sdk": "^2.668.0",
     "axios": "^0.19.2",
+    "create-aws-console-link": "file:../..",
     "request": "^2.88.2",
     "source-map-support": "^0.5.16",
     "ts-loader": "^7.0.2",
