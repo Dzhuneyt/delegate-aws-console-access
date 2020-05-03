@@ -5,7 +5,7 @@
     "create-aws-console-link": "bin/create-aws-console-link.js"
   },
   "scripts": {
-    "deploy": "cdk deploy '*' --require-approval=never",
+    "deploy": "npx webpack && cdk deploy '*' --require-approval=never",
     "build:lambdas": "npx webpack",
     "build:lambdas:watch": "npx webpack --watch",
     "test": "jest",
