@@ -1,14 +1,5 @@
-# Welcome to your CDK TypeScript project!
+# Generate temporary AWS Console signin link (TypeScript)
 
-This is a blank project for TypeScript development with CDK.
+Use TypeScript code to generate a temporary signin link that allows any user you send it to (even ones outside of your organization) - to assume an IAM role and manage AWS resources for temporary (predefined) duration.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+The way this works is: it uses the long-term IAM credentials of an existing IAM user within your AWS account (you could also create a dedicated IAM user for this), to 

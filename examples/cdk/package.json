@@ -5,11 +5,11 @@
     "create-aws-console-link": "bin/create-aws-console-link.js"
   },
   "scripts": {
-    "deploy": "npx webpack && cdk deploy '*' --require-approval=never",
+    "deploy": "npx webpack && ../../node_modules/.bin/cdk deploy '*' --require-approval=never",
     "build:lambdas": "npx webpack",
     "build:lambdas:watch": "npx webpack --watch",
-    "test": "jest",
-    "cdk": "cdk"
+    "test": "../../node_modules/.bin/jest",
+    "cdk": "../../node_modules/.bin/cdk"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.36.1",

@@ -1,4 +1,4 @@
-import {ConsoleSigninGenerator} from '../util/ConsoleSigninGenerator';
+import {ConsoleSigninGenerator} from '../../../util/ConsoleSigninGenerator';
 
 const currentUser = 'John';
 

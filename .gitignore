@@ -1,4 +1,4 @@
-!jest.config.js
+!examples/cdk/jest.config.js
 *.d.ts
 node_modules
 
@@ -9,4 +9,4 @@ cdk.out
 # Parcel build directories
 .cache
 .build
-/lambdas/dist/
+/examples/cdk/lambdas/dist/
