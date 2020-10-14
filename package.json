@@ -1,32 +1,46 @@
 {
   "name": "create-aws-console-link",
-  "version": "1.0.0",
-  "description": "Use TypeScript code to generate a temporary signin link that allows any user you send it to (even ones outside of your organization) - to assume an IAM role and manage AWS resources for temporary (predefined) duration.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib/**/*"
-  ],
+  "private": true,
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Dzhuneyt/create-aws-console-link.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Dzhuneyt/create-aws-console-link/issues"
-  },
-  "homepage": "https://github.com/Dzhuneyt/create-aws-console-link#readme",
-  "dependencies": {
-    "@types/node": "^13.13.4",
-    "aws-sdk": "^2.668.0"
+    "cdk": "cdk"
   },
   "devDependencies": {
-    "typescript": "^3.8.3"
+    "@aws-cdk/assert": "^1.67.0",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^10.17.39",
+    "aws-cdk": "^1.67.0",
+    "jest": "^25.5.0",
+    "parcel": "2.0.0-beta.1",
+    "ts-jest": "^25.5.1",
+    "ts-node": "^8.10.2",
+    "typescript": "~3.7.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-iam": "^1.67.0",
+    "@aws-cdk/aws-lambda": "^1.67.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.67.0",
+    "@aws-cdk/aws-secretsmanager": "^1.67.0",
+    "@aws-cdk/aws-ssm": "^1.67.0",
+    "@aws-cdk/core": "^1.67.0",
+    "aws-sdk": "^2.771.0",
+    "axios": "^0.19.2",
+    "request": "^2.88.2",
+    "source-map-support": "^0.5.16",
+    "ts-loader": "^7.0.5",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "targets": {
+    "cdk-lambda": {
+      "context": "node",
+      "includeNodeModules": {
+        "aws-sdk": false
+      },
+      "sourceMap": false,
+      "minify": false,
+      "engines": {
+        "node": ">= 12"
+      }
+    }
   }
 }

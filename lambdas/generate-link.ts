@@ -1,6 +1,5 @@
-import {ConsoleSigninGenerator} from 'create-aws-console-link';
+import {ConsoleSigninGenerator} from './ConsoleSigninGenerator';
 
-const currentUser = 'John';
 
 /**
  * A Lambda that uses sts.AssumeRole to generate an AWS console link for temporary login
@@ -16,11 +15,21 @@ export const handler = async (event: any) => {
 
     // Step 1: Authenticate user in your own identity system.
     // @TODO
+    const currentUser = 'john@example.com';
 
-    return await new ConsoleSigninGenerator(
-        AWS_ACCESS_KEY_ID,
-        AWS_SECRET_ACCESS_KEY,
-        roleToAssumeARN,
-        currentUser
-    ).getConsoleSigninLink()
+    const link = await new ConsoleSigninGenerator(
+        {
+            AWS_ACCESS_KEY_ID,
+            AWS_SECRET_ACCESS_KEY,
+            role: {
+                arn: roleToAssumeARN,
+                assumeDurationSeconds: 900
+            },
+            userAlias: currentUser
+        }
+    ).getConsoleSigninLink();
+
+    return {
+        link,
+    }
 }

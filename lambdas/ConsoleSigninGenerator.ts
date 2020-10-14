@@ -7,17 +7,24 @@ export class ConsoleSigninGenerator {
     private readonly awsSecretAccessKey: string;
     private readonly roleARN: string;
     private userAlias: string;
+    private roleAssumeDurationSeconds: number;
 
     constructor(
-        AWS_ACCESS_KEY_ID: string,
-        AWS_SECRET_ACCESS_KEY: string,
-        roleARN: string,
-        userAlias?: string,
+        config: {
+            AWS_ACCESS_KEY_ID: string,
+            AWS_SECRET_ACCESS_KEY: string,
+            role: {
+                arn: string,
+                assumeDurationSeconds?: number,
+            },
+            userAlias?: string,
+        }
     ) {
-        this.awsAccessKeyId = AWS_ACCESS_KEY_ID;
-        this.awsSecretAccessKey = AWS_SECRET_ACCESS_KEY;
-        this.roleARN = roleARN;
-        this.userAlias = userAlias ? userAlias : "UnknownUser";
+        this.awsAccessKeyId = config.AWS_ACCESS_KEY_ID;
+        this.awsSecretAccessKey = config.AWS_SECRET_ACCESS_KEY;
+        this.roleARN = config.role.arn;
+        this.roleAssumeDurationSeconds = config.role.assumeDurationSeconds ? config.role.assumeDurationSeconds : 900;
+        this.userAlias = config.userAlias ? config.userAlias : "UnknownUser";
     }
 
     private getSts() {
@@ -36,7 +43,7 @@ export class ConsoleSigninGenerator {
         // Will be used to call AWS /federation endpoint
         // with "Action=getSigninToken" later
         return await this.getSts().assumeRole({
-            DurationSeconds: 900,
+            DurationSeconds: this.roleAssumeDurationSeconds,
             RoleArn: this.roleARN,
             RoleSessionName: this.userAlias,
         }).promise();
