@@ -8,3 +8,4 @@ const app = new cdk.App();
 new CreateConsoleLink(app, 'CreateAwsConsoleLinkStack');
 
 Tags.of(app).add('managed_by', 'aws-cdk');
+Tags.of(app).add('app', 'CreateAwsConsoleLinkStack');

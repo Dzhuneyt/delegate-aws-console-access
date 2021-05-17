@@ -5,30 +5,31 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.67.0",
-    "@types/jest": "^25.2.3",
-    "@types/node": "^10.17.39",
-    "aws-cdk": "^1.67.0",
-    "jest": "^25.5.0",
-    "parcel": "2.0.0-beta.1",
-    "ts-jest": "^25.5.1",
-    "ts-node": "^8.10.2",
-    "typescript": "~3.7.2"
+    "@aws-cdk/assert": "^1.104.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.3.0",
+    "aws-cdk": "^1.104.0",
+    "esbuild": "^0.11.23",
+    "jest": "^26.6.3",
+    "parcel": "2.0.0-beta.2",
+    "ts-jest": "^26.5.6",
+    "ts-node": "^9.1.1",
+    "typescript": "~4.2.4"
   },
   "dependencies": {
-    "@aws-cdk/aws-iam": "^1.67.0",
-    "@aws-cdk/aws-lambda": "^1.67.0",
-    "@aws-cdk/aws-lambda-nodejs": "^1.67.0",
-    "@aws-cdk/aws-secretsmanager": "^1.67.0",
-    "@aws-cdk/aws-ssm": "^1.67.0",
-    "@aws-cdk/core": "^1.67.0",
-    "aws-sdk": "^2.771.0",
-    "axios": "^0.19.2",
+    "@aws-cdk/aws-iam": "^1.104.0",
+    "@aws-cdk/aws-lambda": "^1.104.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.104.0",
+    "@aws-cdk/aws-secretsmanager": "^1.104.0",
+    "@aws-cdk/aws-ssm": "^1.104.0",
+    "@aws-cdk/core": "^1.104.0",
+    "aws-sdk": "^2.907.0",
+    "axios": "^0.21.1",
     "request": "^2.88.2",
-    "source-map-support": "^0.5.16",
-    "ts-loader": "^7.0.5",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "source-map-support": "^0.5.19",
+    "ts-loader": "^9.1.2",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
   },
   "targets": {
     "cdk-lambda": {
@@ -42,5 +43,22 @@
         "node": ">= 12"
       }
     }
-  }
+  },
+  "description": "Generate a temporary link that allows you to delegate temporary access to anybody to assume an IAM role in your AWS account and access the AWS web console, without having to create IAM users for them and without having to deal with AWS Organizations.",
+  "version": "1.0.0",
+  "main": "jest.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dzhuneyt/delegate-aws-console-access.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dzhuneyt/delegate-aws-console-access/issues"
+  },
+  "homepage": "https://github.com/Dzhuneyt/delegate-aws-console-access#readme"
 }

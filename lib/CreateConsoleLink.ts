@@ -1,14 +1,9 @@
-import {
-    AnyPrincipal,
-    PolicyStatement,
-    Role,
-    User
-} from '@aws-cdk/aws-iam';
-import {NodejsFunction} from '@aws-cdk/aws-lambda-nodejs';
-import {CfnOutput} from '@aws-cdk/core';
-import * as cdk from '@aws-cdk/core';
-import * as lambda from '@aws-cdk/aws-lambda';
 import * as iam from '@aws-cdk/aws-iam';
+import {AccountRootPrincipal, PolicyStatement, Role, User} from '@aws-cdk/aws-iam';
+import {NodejsFunction} from '@aws-cdk/aws-lambda-nodejs';
+import * as cdk from '@aws-cdk/core';
+import {CfnOutput} from '@aws-cdk/core';
+import * as lambda from '@aws-cdk/aws-lambda';
 import * as path from 'path';
 
 export class CreateConsoleLink extends cdk.Stack {
@@ -27,6 +22,7 @@ export class CreateConsoleLink extends cdk.Stack {
 
         // Allow the user to assume the role
         role.grant(user, "iam:AssumeRole");
+        role.grant(user, "sts:AssumeRole");
 
         // Create IAM credentials for this user
         const accessKey = new iam.CfnAccessKey(this, 'secret-key', {
@@ -53,15 +49,20 @@ export class CreateConsoleLink extends cdk.Stack {
         this.outputs();
     }
 
+    /**
+     * Create a Role that will be assumed by the user who visits the Single Sign-On link
+     * and give it the relevant permissions
+     */
     private createRole() {
-        const someRole = new Role(this, 'access-console', {
-            assumedBy: new AnyPrincipal(),
+        const roleAssumedByUser = new Role(this, 'access-to-console', {
+            assumedBy: new AccountRootPrincipal(),
+            description: "IAM role that will be assumed by users who automatically login, by visiting the generated link"
         });
-        someRole.addToPolicy(new PolicyStatement({
+        roleAssumedByUser.addToPolicy(new PolicyStatement({
             resources: ["*"],
             actions: ["ec2:*"]
         }));
-        return someRole;
+        return roleAssumedByUser;
     }
 
     private outputs() {
